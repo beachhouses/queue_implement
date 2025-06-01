@@ -156,8 +156,19 @@ int main() {
     cout << "           SIMULASI SISTEM ANTRIAN PELAYANAN\n";
     cout << "===================================================\n\n";
     cout << "Jam Kerja Bank : 09:00 - 15:00\n";
+    // Validasi input jumlah nasabah
+    while (true) {
     cout << "Masukkan jumlah nasabah hari ini : ";
     cin >> jumlahNasabah;
+
+    if (cin.fail() || jumlahNasabah <= 0) {
+        cout << "Input tidak valid, silahkan masukkan angka yang valid!\n";
+        cin.clear();
+        cin.ignore(1000, '\n'); 
+    } else {
+        break;
+        }
+    }
 
     string tanggalHariIni = getCurrentDate();
 
